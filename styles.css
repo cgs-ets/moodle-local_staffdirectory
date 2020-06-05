@@ -25,7 +25,7 @@
 }
 .local_staffdirectory-root .directory span {
   display: table-cell;
-  padding: 4px 0;
+  padding: 4px;
   border-bottom: 1px solid #D4E0ED;
 }
 .local_staffdirectory-root .directory .header {
@@ -34,17 +34,12 @@
 .local_staffdirectory-root .directory .attr_photo {
   width: 40px;
 }
-.local_staffdirectory-root .directory .attr_photo a {
+.local_staffdirectory-root .directory .attr_photo img {
   display: inline-block;
   width: 28px;
   vertical-align: middle;
   border-radius: 50%;
   overflow: hidden;
-  margin-right: 10px;
-}
-.local_staffdirectory-root .directory .attr_photo a img {
-  display: block;
-  width: 100%;
 }
 .local_staffdirectory-root .directory .attr_staffcode {
   width: 90px;
