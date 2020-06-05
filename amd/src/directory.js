@@ -77,6 +77,12 @@ define(['jquery', 'core/log', 'core/ajax'],
         };
 
         var directory = new List('local_staffdirectory-root', options);
+        directory.on('searchComplete', function(e) {
+            self.rootel.removeClass('noitems');
+            if (!directory.visibleItems.length) {
+                self.rootel.addClass('noitems');
+            }
+        });
     };
 
     return {

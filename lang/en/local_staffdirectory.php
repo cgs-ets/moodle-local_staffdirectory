@@ -39,5 +39,5 @@ $string['config:sqldirectory'] = 'Directory list SQL';
 $string['config:sqldirectory_desc'] = 'The SQL to fetch the full directory list.';
 $string['config:missingsettings'] = 'Required settings for local_staffdirectory are missing.';
 
-$string['list:fail'] = 'Directory failed to load';
+$string['list:noitems'] = 'No staff members found...';
 $string['list:searchplaceholder'] = 'Search by staff attributes...';

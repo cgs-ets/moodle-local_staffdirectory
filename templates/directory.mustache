@@ -21,21 +21,19 @@
 {{!
     @template local_staffdirectory/directory
 }}
-<div id="local_staffdirectory-root" class="local_staffdirectory-root">
+<div id="local_staffdirectory-root" class="local_staffdirectory-root {{^hasresults}}noitems{{/hasresults}}">
     {{#hasresults}}
         <input type="text" name="search" class="form-control directory-search" placeholder="{{#str}}list:searchplaceholder, local_staffdirectory{{/str}}" tabindex="-1" autocomplete="off">
         <div class="directory">
-            <ul>
-                {{>local_staffdirectory/header}}
-            </ul>
             <ul class="directory-list">
+                {{>local_staffdirectory/header}}
                 {{#directory}}
                     {{>local_staffdirectory/staffmember}}
                 {{/directory}}
             </ul>
         </div>
     {{/hasresults}}
-    {{^hasresults}}
-        {{#str}} list:fail, local_staffdirectory {{/str}}
-    {{/hasresults}}
+    <div class="noitems-message">
+        {{#str}} list:noitems, local_staffdirectory {{/str}}
+    </div>
 </div>
