@@ -1,0 +1,71 @@
+.path-local-staffdirectory #region-main {
+  padding: 0;
+  border: 0 none;
+  overflow: visible;
+}
+.local_staffdirectory-root .directory-search {
+  margin-bottom: 20px;
+  max-width: 500px;
+  font-size: 16px;
+}
+.local_staffdirectory-root .directory {
+  background-color: #E4F1FE;
+  padding: 15px;
+  float: left;
+}
+.local_staffdirectory-root .directory ul {
+  list-style: none;
+  color: #313131;
+  padding: 0;
+  margin: 0;
+}
+.local_staffdirectory-root .directory li {
+  border-bottom: 1px solid #D4E0ED;
+  padding: 4px 0;
+}
+.local_staffdirectory-root .directory li:last-of-type {
+  border-bottom: 0 none;
+}
+.local_staffdirectory-root .directory span {
+  display: inline-block;
+}
+.local_staffdirectory-root .directory .header {
+  padding: 0 0 9px 0;
+}
+.local_staffdirectory-root .directory .header span {
+  font-weight: 600;
+}
+.local_staffdirectory-root .directory .attr_photo {
+  display: inline-block;
+  width: 28px;
+  vertical-align: middle;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
+}
+.local_staffdirectory-root .directory .attr_photo img {
+  display: block;
+  width: 100%;
+}
+.local_staffdirectory-root .directory .attr_staffcode {
+  width: 90px;
+}
+.local_staffdirectory-root .directory .attr_displayname {
+  width: 200px;
+}
+.local_staffdirectory-root .directory .attr_campus {
+  width: 80px;
+}
+.local_staffdirectory-root .directory .attr_department {
+  width: 280px;
+}
+.local_staffdirectory-root .directory .attr_jobposition {
+  width: 370px;
+}
+.local_staffdirectory-root .directory .attr_extension {
+  width: 100px;
+  font-weight: 600;
+}
+.local_staffdirectory-root .directory .attr_email {
+  width: 60px;
+}
