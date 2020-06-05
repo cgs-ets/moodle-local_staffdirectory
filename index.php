@@ -68,13 +68,15 @@ if (empty($config->dbtype) ||
         exit;
 }
 
-// Get preferred driver. Last parameter (external = true) means we are connecting to an external database.
-$externalDB = moodle_database::get_driver_instance($config->dbtype, 'native', true);        
-// Connect to the DB.
-$externalDB->connect($config->dbhost, $config->dbuser, $config->dbpass, $config->dbname, '');
-
-// Get the staff listing
-$staffdata = array_values($externalDB->get_records_sql($config->sqldirectory));
+$staffdata = array();
+try {
+    // Get preferred driver. Last parameter (external = true) means we are connecting to an external database.
+    $externalDB = moodle_database::get_driver_instance($config->dbtype, 'native', true);        
+    // Connect to the DB.
+    $externalDB->connect($config->dbhost, $config->dbuser, $config->dbpass, $config->dbname, '');
+    // Get the staff listing
+    $staffdata = array_values($externalDB->get_records_sql($config->sqldirectory));
+} catch (Exception $e) {} 
 
 // Process the listing.
 $directory = array();
@@ -102,7 +104,6 @@ $data = array(
     'hasresults' => (count($directory) > 0),
     'directory' => $directory,
 );
-//echo "<pre>"; var_export($staffdata); exit;
 
 // Output page template.
 echo $OUTPUT->render_from_template('local_staffdirectory/directory', $data);

@@ -39,5 +39,5 @@ $string['config:sqldirectory'] = 'External assessments SQL';
 $string['config:sqldirectory_desc'] = 'The SQL to fetch the full directory list.';
 $string['config:missingsettings'] = 'Required settings for local_staffdirectory are missing.';
 
-$string['list:nostaff'] = 'No staff found.';
+$string['list:fail'] = 'Directory failed to load';
 $string['list:searchplaceholder'] = 'Search by staff attributes...';
