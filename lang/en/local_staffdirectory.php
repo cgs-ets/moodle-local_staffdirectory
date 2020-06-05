@@ -35,7 +35,7 @@ $string['config:dbhost_desc'] = 'Type database server IP address or host name. U
 $string['config:dbname'] = 'Database name';
 $string['config:dbuser'] = 'Database user';
 $string['config:dbpass'] = 'Database password';
-$string['config:sqldirectory'] = 'External assessments SQL';
+$string['config:sqldirectory'] = 'Directory list SQL';
 $string['config:sqldirectory_desc'] = 'The SQL to fetch the full directory list.';
 $string['config:missingsettings'] = 'Required settings for local_staffdirectory are missing.';
 
