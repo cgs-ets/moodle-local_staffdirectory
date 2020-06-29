@@ -24,7 +24,7 @@
 <div id="local_staffdirectory-root" class="local_staffdirectory-root {{^hasresults}}noitems{{/hasresults}}">
     {{#hasresults}}
         {{#isstaff}}
-            <p>If your Department or Job Position details are incorrect, please <a href="mailto:employment@cgs.act.edu.au">send an email to HR</a>.<br> To download a PDF/printable version of the staff phone directory, <a target="_blank" href="http://cgsrh01vmgt001/ReportServer?%2fMisc%2fPhone_Lists%2fPhone_List_Names&amp;rs:Format=PDF">click here</a>.</p>
+            {{{staffblurb}}}
         {{/isstaff}}
         <input type="text" name="search" class="form-control directory-search" placeholder="{{#str}}list:searchplaceholder, local_staffdirectory{{/str}}" tabindex="-1" autocomplete="off">
         <div class="directory">

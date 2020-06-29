@@ -101,6 +101,7 @@ if(isset($USER->profile['CampusRoles'])) {
 // Set up the page data.
 $data = array(
     'isstaff' => $isstaff,
+    'staffblurb' => $config->staffblurb,
     'hasresults' => (count($directory) > 0),
     'directory' => $directory,
 );

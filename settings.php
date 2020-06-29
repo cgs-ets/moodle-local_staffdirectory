@@ -78,4 +78,12 @@ if ($hassiteconfig) {
     $setting = new admin_setting_configtextarea($name, $title, $description, $default);
     $settings->add($setting);
 
+    // SQL directory.
+    $name = 'local_staffdirectory/staffblurb';
+    $title = get_string('config:staffblurb', 'local_staffdirectory');
+    $default = '';
+    $description = get_string('config:staffblurb_desc', 'local_staffdirectory');
+    $setting = new admin_setting_configtextarea($name, $title, $description, $default);
+    $settings->add($setting);
+
 }

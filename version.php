@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2019090409;
+$plugin->version   = 2020062900;
 $plugin->requires  = 2017111300;
 $plugin->component = 'local_staffdirectory';
 $plugin->maturity = MATURITY_STABLE;

@@ -38,6 +38,8 @@ $string['config:dbpass'] = 'Database password';
 $string['config:sqldirectory'] = 'Directory list SQL';
 $string['config:sqldirectory_desc'] = 'The SQL to fetch the full directory list.';
 $string['config:missingsettings'] = 'Required settings for local_staffdirectory are missing.';
+$string['config:staffblurb'] = 'Staff blurb';
+$string['config:staffblurb_desc'] = 'HTML blurb to add to the top of the form for staff.';
 
 $string['list:noitems'] = 'No staff members found...';
 $string['list:searchplaceholder'] = 'Search by staff attributes...';
