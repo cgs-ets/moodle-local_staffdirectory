@@ -23,11 +23,11 @@
 }}
 <li>
     {{#nest}}
-        <span class="attr_photo noborder"></span>
-        {{#isstaff}}<span class="attr_staffcode noborder"></span>{{/isstaff}}
-        <span class="attr_displayname noborder"></span>
-        <span class="attr_campus noborder"></span>
-        <span class="attr_department noborder"></span>
+        <span class="attr_photo invisible"></span>
+        {{#isstaff}}<span class="attr_staffcode invisible">{{schoolstaffcode}}</span>{{/isstaff}}
+        <span class="attr_displayname invisible">{{displayname}}</span>
+        <span class="attr_campus invisible">{{staffcampus}}</span>
+        <span class="attr_department invisible">{{staffdepartmentdescription}}</span>
     {{/nest}}
     {{^nest}}
         <span class="attr_photo"><img src="{{photo}}" alt="{{displayname}}" title="{{displayname}}" /></span>
