@@ -26,7 +26,11 @@
 .local_staffdirectory-root .directory span {
   display: table-cell;
   padding: 4px;
-  border-bottom: 1px solid #D4E0ED;
+  border-top: 1px solid #D4E0ED;
+}
+.local_staffdirectory-root .directory .header span,
+.local_staffdirectory-root .directory span.noborder {
+  border-top: 0 none;
 }
 .local_staffdirectory-root .directory .header {
   font-weight: 600;

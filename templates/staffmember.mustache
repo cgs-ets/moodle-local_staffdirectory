@@ -22,11 +22,20 @@
     @template local_staffdirectory/staffmember
 }}
 <li>
-    <span class="attr_photo"><img src="{{photo}}" alt="{{displayname}}" title="{{displayname}}" /></span>
-    {{#isstaff}}<span class="attr_staffcode">{{schoolstaffcode}}</span>{{/isstaff}}
-    <span class="attr_displayname">{{displayname}}</span>
-    <span class="attr_campus">{{staffcampus}}</span>
-    <span class="attr_department">{{staffdepartmentdescription}}</span>
+    {{#nest}}
+        <span class="attr_photo noborder"></span>
+        {{#isstaff}}<span class="attr_staffcode noborder"></span>{{/isstaff}}
+        <span class="attr_displayname noborder"></span>
+        <span class="attr_campus noborder"></span>
+        <span class="attr_department noborder"></span>
+    {{/nest}}
+    {{^nest}}
+        <span class="attr_photo"><img src="{{photo}}" alt="{{displayname}}" title="{{displayname}}" /></span>
+        {{#isstaff}}<span class="attr_staffcode">{{schoolstaffcode}}</span>{{/isstaff}}
+        <span class="attr_displayname">{{displayname}}</span>
+        <span class="attr_campus">{{staffcampus}}</span>
+        <span class="attr_department">{{staffdepartmentdescription}}</span>
+    {{/nest}}
     <span class="attr_jobposition">{{jobpositiondescription}}</span>
     {{#isstaff}}<span class="attr_extension">{{staffextension}}</span>{{/isstaff}}
     <span class="attr_email"><a href="mailto:{{occupemail}}">Email</a></span>

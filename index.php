@@ -80,11 +80,18 @@ try {
 
 // Process the listing.
 $directory = array();
+$nest = array();
 foreach ($staffdata as $staff) {
-    $user = core_user::get_user_by_username($staff->staffid);
-    $staff->photo = new moodle_url('/user/pix.php/0/f2.jpg');
-    if ($user) {
-        $staff->photo = new moodle_url('/user/pix.php/'.$user->id.'/f2.jpg');
+    if ( ! isset($nest[$staff->staffid]) ) {
+        $nest[$staff->staffid] = $staff->staffid;
+        $staff->nest = false;
+        $user = core_user::get_user_by_username($staff->staffid);
+        $staff->photo = new moodle_url('/user/pix.php/0/f2.jpg');
+        if ($user) {
+            $staff->photo = new moodle_url('/user/pix.php/'.$user->id.'/f2.jpg');
+        }
+    } else {
+        $staff->nest = true;
     }
     $directory[] = (array) $staff;
 }
