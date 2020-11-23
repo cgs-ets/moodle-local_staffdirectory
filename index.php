@@ -42,9 +42,7 @@ $PAGE->navbar->add($title);
 require_login();
 
 // Include page CSS.
-$PAGE->requires->css(new moodle_url($CFG->wwwroot . '/local/staffdirectory/styles.css'));
-$PAGE->requires->js( new moodle_url($CFG->wwwroot . '/local/staffdirectory/vendor/js/listjs/list.min.js'), true );
-
+$PAGE->requires->css(new moodle_url($CFG->wwwroot . '/local/staffdirectory/staffdirstyles.css'));
 
 // Output header.
 echo $OUTPUT->header();
@@ -79,7 +77,7 @@ try {
 } catch (Exception $e) {} 
 
 // Process the listing.
-$directory = array();
+/*$directory = array();
 $nest = array();
 foreach ($staffdata as $staff) {
     if ( ! isset($nest[$staff->staffid]) ) {
@@ -94,7 +92,45 @@ foreach ($staffdata as $staff) {
         $staff->nest = true;
     }
     $directory[] = (array) $staff;
+}*/
+
+$directory = array();
+foreach ($staffdata as $staff) {
+    if ( isset($directory[$staff->staffid]) ) {
+        // Add a new job position to an existing staff member.
+        $directory[$staff->staffid]['jobpositions'][] = array(
+            'ext' => $staff->staffextension,
+            'email' => $staff->occupemail,
+            'position' => $staff->jobpositiondescription,
+        );
+    } else {
+        $user = core_user::get_user_by_username($staff->staffid);
+        $photo = new moodle_url('/user/pix.php/0/f2.jpg');
+        if ($user) {
+            $userpicture = new \user_picture($user);
+            $userpicture->size = 2; // Size f2.
+            $photo = $userpicture->get_url($PAGE)->out(false);
+        }
+        $directory[$staff->staffid] = array(
+            'staffid' => $staff->staffid,
+            'photo' => $photo,
+            'staffcode' => $staff->schoolstaffcode,
+            'name' => $staff->displayname,
+            'campus' => $staff->staffcampus,
+            'department' => $staff->staffdepartmentdescription,
+            'jobpositions' => array ( array(
+                    'ext' => $staff->staffextension,
+                    'email' => $staff->occupemail,
+                    'position' => $staff->jobpositiondescription,
+                )
+            ),
+        );
+    }
 }
+
+$directory = array_values($directory); 
+//echo "<pre>"; var_export($directory); exit;
+
 
 // Get the user type.
 $isstaff = false; //default
@@ -112,6 +148,7 @@ $data = array(
     'hasresults' => (count($directory) > 0),
     'directory' => $directory,
 );
+
 
 // Output page template.
 echo $OUTPUT->render_from_template('local_staffdirectory/directory', $data);

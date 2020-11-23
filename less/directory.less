@@ -15,21 +15,34 @@
 		background-color: #E4F1FE;
 	   	padding: 15px;
 	   	float: left;
-		ul {
+		.directory-list {
 			display: table;
 			list-style: none;
 		    color: #313131;
 		    padding: 0;
 		    margin: 0;
+		    &>li {
+				display: table-row;
+				&>span {
+					display: table-cell;
+					padding: 4px;
+					border-bottom: 1px solid #D4E0ED;
+				}
+				&>ul {
+					list-style: none;
+				    padding: 0;
+				    margin: 0;
+					display: table-cell;
+					padding: 4px;
+					border-bottom: 1px solid #D4E0ED;
+					&>li span {
+						display: table-cell;
+						padding: 4px;
+					}
+				}
+			}
 		}
-		li {
-			display: table-row;
-		}
-		span {
-			display: table-cell;
-			padding: 4px;
-			border-bottom: 1px solid #D4E0ED;
-		}
+
 		.header {
 			font-weight: 600;
 		}

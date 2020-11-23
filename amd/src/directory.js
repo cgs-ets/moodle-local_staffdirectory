@@ -55,6 +55,7 @@ define(['jquery', 'core/log', 'core/ajax'],
     function Directory(rootel) {
         var self = this;
         self.rootel = rootel;
+        self.dir = self.rootel.find('.directory-list').first();
 
     }
 
@@ -65,7 +66,7 @@ define(['jquery', 'core/log', 'core/ajax'],
     Directory.prototype.main = function () {
         var self = this;
 
-        var options = {
+        /*var options = {
             valueNames: [ 
                 'attr_staffcode', 
                 'attr_displayname',
@@ -82,7 +83,91 @@ define(['jquery', 'core/log', 'core/ajax'],
             if (!directory.visibleItems.length) {
                 self.rootel.addClass('noitems');
             }
+        });*/
+
+
+        // Handle search.
+        var keytimer;
+        self.rootel.on('keyup', '.directory-search', function(e) {
+            clearTimeout(keytimer);
+            var autocomplete = $(this);
+            if (e.which == 13) {
+                self.search(autocomplete);
+            } else {
+                keytimer = setTimeout(function () {
+                    self.search(autocomplete);
+                }, 500);
+            }
         });
+
+
+    };
+
+
+    /**
+     * Search.
+     *
+     * @method
+     */
+    Directory.prototype.search = function (searchel) {
+        var self = this;
+        self.hasresults = false;
+
+        if (searchel.val() == '') {
+            self.dir.find('.dir-row').show();
+            return;
+        }
+
+        var query = searchel.val();
+
+        // Hide values initially
+        self.rootel.addClass('searching');
+        self.rootel.removeClass('noitems');
+        self.dir.find('.dir-row').hide();
+
+        // Search staff code.
+        var code = self.dir.find('.attr_staffcode').filter(function() { 
+            var reg = new RegExp(query, "i");
+            return reg.test($(this).text());
+        }).parent();
+
+        // Search name.
+        var name = self.dir.find('.attr_displayname').filter(function() { 
+            var reg = new RegExp(query, "i");
+            return reg.test($(this).text());
+        }).parent();
+
+        // Search campus.
+        var campus = self.dir.find('.attr_campus').filter(function() { 
+            var reg = new RegExp(query, "i");
+            return reg.test($(this).text());
+        }).parent();
+
+        // Search departments.
+        var dept = self.dir.find('.attr_department').filter(function() { 
+            var reg = new RegExp(query, "i");
+            return reg.test($(this).text());
+        }).parent();
+
+        // Search job positions.
+        var job = self.dir.find('.attr_jobposition').filter(function() { 
+            var reg = new RegExp(query, "i");
+            return reg.test($(this).text());
+        }).closest('.dir-row');
+
+        // Display the rows found.
+        code.show();
+        name.show();
+        campus.show();
+        dept.show();
+        job.show();
+
+        self.rootel.removeClass('searching');
+
+        if (!(code.length + name.length + campus.length + dept.length + job.length)) {
+            self.rootel.addClass('noitems');
+        }
+
     };
 
     return {

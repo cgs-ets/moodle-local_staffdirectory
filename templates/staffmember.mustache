@@ -21,22 +21,19 @@
 {{!
     @template local_staffdirectory/staffmember
 }}
-<li>
-    {{#nest}}
-        <span class="attr_photo invisible"></span>
-        {{#isstaff}}<span class="attr_staffcode invisible">{{schoolstaffcode}}</span>{{/isstaff}}
-        <span class="attr_displayname invisible">{{displayname}}</span>
-        <span class="attr_campus invisible">{{staffcampus}}</span>
-        <span class="attr_department invisible">{{staffdepartmentdescription}}</span>
-    {{/nest}}
-    {{^nest}}
-        <span class="attr_photo"><img src="{{photo}}" alt="{{displayname}}" title="{{displayname}}" /></span>
-        {{#isstaff}}<span class="attr_staffcode">{{schoolstaffcode}}</span>{{/isstaff}}
-        <span class="attr_displayname">{{displayname}}</span>
-        <span class="attr_campus">{{staffcampus}}</span>
-        <span class="attr_department">{{staffdepartmentdescription}}</span>
-    {{/nest}}
-    <span class="attr_jobposition">{{jobpositiondescription}}</span>
-    {{#isstaff}}<span class="attr_extension">{{staffextension}}</span>{{/isstaff}}
-    <span class="attr_email"><a href="mailto:{{occupemail}}">Email</a></span>
+<li class="dir-row">
+    <span class="attr_photo"><img src="{{photo}}" alt="{{name}}" title="{{name}}" /></span>
+    {{#isstaff}}<span class="attr_staffcode">{{staffcode}}</span>{{/isstaff}}
+    <span class="attr_displayname">{{name}}</span>
+    <span class="attr_campus">{{campus}}</span>
+    <span class="attr_department">{{department}}</span>
+    <ul class="jobpositions">
+        {{#jobpositions}}
+            <li class="position">
+                <span class="attr_jobposition">{{position}}</span>
+                {{#isstaff}}<span class="attr_extension">{{ext}}</span>{{/isstaff}}
+                <span class="attr_email"><a href="mailto:{{email}}">Email</a></span>
+            </li>
+        {{/jobpositions}}
+    </ul>
 </li>
