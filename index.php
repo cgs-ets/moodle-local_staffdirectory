@@ -115,7 +115,7 @@ foreach ($staffdata as $staff) {
             'staffid' => $staff->staffid,
             'photo' => $photo,
             'staffcode' => $staff->schoolstaffcode,
-            'name' => $staff->displayname,
+            'name' => preg_replace('!\s+!', ' ', $staff->displayname),
             'campus' => $staff->staffcampus,
             'department' => $staff->staffdepartmentdescription,
             'jobpositions' => array ( array(
