@@ -84,3 +84,20 @@
 .local_staffdirectory-root.noitems .noitems-message {
   display: block;
 }
+@media only screen and (max-width: 900px) {
+  .local_staffdirectory-root .directory .directory-list > li {
+    display: block;
+  }
+  .local_staffdirectory-root .directory .directory-list > li > span {
+    width: auto;
+    display: inline-block;
+    border: 0 none;
+  }
+  .local_staffdirectory-root .directory .directory-list > li > ul {
+    background-color: #f2f4f6;
+  }
+  .local_staffdirectory-root .directory .directory-list > li > ul > li span {
+    display: table-cell;
+    padding: 4px;
+  }
+}

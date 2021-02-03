@@ -90,4 +90,28 @@
 			display: block;
 		}
 	}
+
+
+	@media only screen and (max-width: 900px) {
+		.directory {
+			.directory-list {
+			    &>li {
+					display: block;
+					&>span {
+						width: auto;
+						display: inline-block;
+						border: 0 none;
+					}
+					&>ul {
+						background-color: #f2f4f6;
+						&>li span {
+							display: table-cell;
+							padding: 4px;
+						}
+					}
+				}
+			}
+		}
+	}
+
 }
