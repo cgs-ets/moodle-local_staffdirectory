@@ -105,13 +105,21 @@ foreach ($staffdata as $staff) {
         );
     } else {
         $user = core_user::get_user_by_username($staff->staffid);
+        $username = '';
+        $profileurl = '';
         $photo = new moodle_url('/user/pix.php/0/f2.jpg');
         if ($user) {
+            $username = $user->username;
+            $profileurl = new moodle_url('/user/profile.php', array('id' => $user->id));
+            $profileurl = $profileurl->out(false);
+
             $userpicture = new \user_picture($user);
             $userpicture->size = 2; // Size f2.
             $photo = $userpicture->get_url($PAGE)->out(false);
         }
         $directory[$staff->staffid] = array(
+            'username' => $username,
+            'profileurl' => $profileurl,
             'staffid' => $staff->staffid,
             'photo' => $photo,
             'staffcode' => $staff->schoolstaffcode,
