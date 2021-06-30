@@ -42,7 +42,7 @@ $PAGE->navbar->add($title);
 require_login();
 
 // Include page CSS.
-$PAGE->requires->css(new moodle_url($CFG->wwwroot . '/local/staffdirectory/staffdirstyles.css'));
+$PAGE->requires->css(new moodle_url($CFG->wwwroot . '/local/staffdirectory/staffdirstyles.css', array('modified' => filemtime('staffdirstyles.css'))));
 
 // Output header.
 echo $OUTPUT->header();
