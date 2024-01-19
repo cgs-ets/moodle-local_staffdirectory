@@ -99,7 +99,7 @@ foreach ($staffdata as $staff) {
     if ( isset($directory[$staff->staffid]) ) {
         // Add a new job position to an existing staff member.
         $directory[$staff->staffid]['jobpositions'][] = array(
-            'ext' => $staff->staffextension,
+            'ext' => $staff->staffextension ? $staff->staffextension : '',
             'email' => $staff->occupemail,
             'position' => $staff->jobpositiondescription,
         );
@@ -127,7 +127,7 @@ foreach ($staffdata as $staff) {
             'campus' => $staff->staffcampus,
             'department' => $staff->staffdepartmentdescription,
             'jobpositions' => array ( array(
-                    'ext' => $staff->staffextension,
+                    'ext' => $staff->staffextension ? $staff->staffextension : '',
                     'email' => $staff->occupemail,
                     'position' => $staff->jobpositiondescription,
                 )
